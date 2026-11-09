@@ -13,7 +13,10 @@ export default defineConfig([
   js.configs.recommended,
 
   // TypeScript config
-  ...tseslint.configs.recommended,
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [tseslint.configs.recommended],
+  },
 
   {
     files: ['src/**/*.{ts,tsx}'],
@@ -61,18 +64,6 @@ export default defineConfig([
     },
     rules: {
       ...vitest.configs.recommended.rules,
-    },
-  },
-
-  // Cypress config
-  {
-    files: ['cypress/**/*.{ts,js}'],
-    languageOptions: {
-      parser: tseslint.parser,
-      globals: globals.browser,
-    },
-    rules: {
-      '@typescript-eslint/no-namespace': 'off',
     },
   },
 
