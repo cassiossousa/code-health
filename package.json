@@ -1,0 +1,44 @@
+{
+  "name": "code-health",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "homepage": "https://cassiossousa.github.io/code-health",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "preview": "vite preview",
+    "prettier": "prettier --check .",
+    "prettier-fix": "prettier --write .",
+    "test": "vitest",
+    "test-cov": "vitest --coverage",
+    "test-watch": "vitest --watch --coverage",
+    "tsc": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react-redux": "9.2.0",
+    "react-router-dom": "^7.18.5",
+    "styled-components": "6.6.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
+    "@types/react-dom": "19.2.3",
+    "@types/styled-components": "5.1.36",
+    "@vitejs/plugin-react": "5.1.4",
+    "@vitest/coverage-v8": "4.1.12",
+    "@vitest/eslint-plugin": "1.6.9",
+    "eslint": "9.39.3",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-react-refresh": "0.5.2",
+    "globals": "17.3.0",
+    "jiti": "2.6.1",
+    "jsdom": "28.1.0",
+    "prettier": "3.8.1",
+    "typescript-eslint": "8.36.0",
+    "vitest": "4.1.12"
+  }
+}
