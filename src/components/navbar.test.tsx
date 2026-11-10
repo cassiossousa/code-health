@@ -1,16 +1,20 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import { describe, expect, it } from 'vitest';
 
 import Navbar from './navbar';
 
 describe('Navbar', () => {
-  it('renders the heading and navigation links', () => {
+  const renderNavbar = (initialEntry = '/') =>
     render(
-      <MemoryRouter>
+      <MemoryRouter initialEntries={[initialEntry]}>
         <Navbar />
       </MemoryRouter>,
     );
+
+  it('renders the heading and navigation links', () => {
+    renderNavbar();
 
     expect(
       screen.getByRole('heading', { name: 'Navbar', level: 1 }),
@@ -31,26 +35,25 @@ describe('Navbar', () => {
     ['/', 'Home'],
     ['/stuff', 'Stuff'],
   ])('marks %s as the active route', (route, activeLink) => {
-    render(
-      <MemoryRouter initialEntries={[route]}>
-        <Navbar />
-      </MemoryRouter>,
-    );
+    renderNavbar(route);
+
+    const inactiveLink = activeLink === 'Home' ? 'Stuff' : 'Home';
 
     expect(screen.getByRole('link', { name: activeLink })).toHaveAttribute(
       'aria-current',
       'page',
     );
+
+    expect(
+      screen.getByRole('link', { name: inactiveLink }),
+    ).not.toHaveAttribute('aria-current', 'page');
   });
 
-  it('updates the active link when navigating', () => {
-    render(
-      <MemoryRouter initialEntries={['/']}>
-        <Navbar />
-      </MemoryRouter>,
-    );
+  it('updates the active link when the user navigates', async () => {
+    const user = userEvent.setup();
 
-    fireEvent.click(screen.getByRole('link', { name: 'Stuff' }));
+    renderNavbar('/');
+    await user.click(screen.getByRole('link', { name: 'Stuff' }));
 
     expect(screen.getByRole('link', { name: 'Stuff' })).toHaveAttribute(
       'aria-current',
