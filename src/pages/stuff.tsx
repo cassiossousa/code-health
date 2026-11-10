@@ -1,6 +1,6 @@
 function Stuff() {
   return (
-    <div>
+    <>
       <h2>STUFF</h2>
       <p>Mauris sem velit, vehicula eget sodales vitae, rhoncus eget sapien:</p>
       <ol>
@@ -10,7 +10,7 @@ function Stuff() {
         <li>Eget erat</li>
         <li>Id porttitor</li>
       </ol>
-    </div>
+    </>
   );
 }
 

@@ -1,5 +1,6 @@
 import { NavLink, Outlet } from 'react-router';
 import styled from 'styled-components';
+import Card from '../components/card';
 
 const Header = styled.div`
   ul {
@@ -26,20 +27,6 @@ const Header = styled.div`
   }
 `;
 
-const Content = styled.div`
-  background-color: #fff;
-  padding: 20px;
-
-  h2 {
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    margin-bottom: 10px;
-  }
-`;
-
 function Layout() {
   return (
     <div>
@@ -56,9 +43,9 @@ function Layout() {
           </li>
         </ul>
       </Header>
-      <Content>
+      <Card>
         <Outlet />
-      </Content>
+      </Card>
     </div>
   );
 }
