@@ -11,9 +11,6 @@ function Navbar() {
         <li>
           <NavLink to="/stuff">Stuff</NavLink>
         </li>
-        <li>
-          <NavLink to="/contact">Contact</NavLink>
-        </li>
       </ul>
     </div>
   );

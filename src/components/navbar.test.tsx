@@ -25,17 +25,11 @@ describe('Navbar', () => {
       'href',
       '/stuff',
     );
-
-    expect(screen.getByRole('link', { name: 'Contact' })).toHaveAttribute(
-      'href',
-      '/contact',
-    );
   });
 
   it.each([
     ['/', 'Home'],
     ['/stuff', 'Stuff'],
-    ['/contact', 'Contact'],
   ])('marks %s as the active route', (route, activeLink) => {
     render(
       <MemoryRouter initialEntries={[route]}>
