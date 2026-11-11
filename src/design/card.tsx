@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const CardWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.surface};
+  background-color: ${({ theme }) => theme.colors.white};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.borderRadius.round};
   padding: ${({ theme }) => theme.spacing[6]};

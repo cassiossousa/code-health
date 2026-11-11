@@ -20,7 +20,7 @@ const NavbarWrapper = styled.nav`
   }
 
   li a {
-    color: ${({ theme }) => theme.colors.surface};
+    color: ${({ theme }) => theme.colors.white};
     font-weight: bold;
     text-decoration: none;
     padding: ${({ theme }) => theme.spacing[5]};
@@ -29,7 +29,7 @@ const NavbarWrapper = styled.nav`
 
   li a.active {
     background-color: ${({ theme }) => theme.colors.primary};
-    color: ${({ theme }) => theme.colors.surface};
+    color: ${({ theme }) => theme.colors.white};
   }
 `;
 
