@@ -8,6 +8,13 @@ export const theme = {
     text: '#173b39',
     border: '#d3e3e1',
   },
+  link: {
+    default: '#b6e3de',
+    visited: '#c5d5a5',
+    hover: '#d8f0e9',
+    focus: '#ffe08a',
+    active: '#f4f1d5',
+  },
   spacing: {
     1: '0.25rem',
     2: '0.5rem',

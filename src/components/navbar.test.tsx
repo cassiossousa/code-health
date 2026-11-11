@@ -5,7 +5,7 @@ import { ThemeProvider } from 'styled-components';
 import { describe, expect, it } from 'vitest';
 
 import Navbar from './navbar';
-import { NAVLINKS } from '../routes';
+import { ROUTES } from '../routes';
 import { theme } from '../design/theme';
 
 describe('Navbar', () => {
@@ -21,7 +21,7 @@ describe('Navbar', () => {
   it('renders the navigation links', () => {
     renderNavbar();
 
-    NAVLINKS.forEach(({ to, label }) => {
+    ROUTES.forEach(({ to, label }) => {
       expect(screen.getByRole('link', { name: label })).toHaveAttribute(
         'href',
         to,
@@ -44,13 +44,14 @@ describe('Navbar', () => {
 
     await user.click(screen.getByRole('link', { name: 'Stuff' }));
 
-    expect(screen.getByRole('link', { name: 'Home' })).not.toHaveAttribute(
-      'aria-current',
-      'page',
-    );
-    expect(screen.getByRole('link', { name: 'Stuff' })).toHaveAttribute(
-      'aria-current',
-      'page',
-    );
+    const homeLink = screen.getByRole('link', { name: 'Home' });
+    const stuffLink = screen.getByRole('link', { name: 'Stuff' });
+
+    expect(homeLink).not.toHaveAttribute('aria-current', 'page');
+    expect(stuffLink).toHaveAttribute('aria-current', 'page');
+    expect(stuffLink).toHaveStyle({
+      color: theme.link.active,
+      backgroundColor: theme.colors.primary,
+    });
   });
 });
