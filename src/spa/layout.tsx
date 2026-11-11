@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router';
-import Card from '../components/card';
+import Card from '../design/card';
 import Navbar from '../components/navbar';
 
 function Layout() {
