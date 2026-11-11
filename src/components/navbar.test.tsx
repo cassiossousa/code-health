@@ -4,6 +4,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { describe, expect, it } from 'vitest';
 
 import Navbar from './navbar';
+import { NAVLINKS } from '../routes';
 
 describe('Navbar', () => {
   const renderNavbar = (initialEntry = '/') =>
@@ -13,54 +14,37 @@ describe('Navbar', () => {
       </MemoryRouter>,
     );
 
-  it('renders the heading and navigation links', () => {
+  it('renders the navigation links', () => {
     renderNavbar();
 
-    expect(
-      screen.getByRole('heading', { name: 'Navbar', level: 1 }),
-    ).toBeInTheDocument();
-
-    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute(
-      'href',
-      '/',
-    );
-
-    expect(screen.getByRole('link', { name: 'Stuff' })).toHaveAttribute(
-      'href',
-      '/stuff',
-    );
-  });
-
-  it.each([
-    ['/', 'Home'],
-    ['/stuff', 'Stuff'],
-  ])('marks %s as the active route', (route, activeLink) => {
-    renderNavbar(route);
-
-    const inactiveLink = activeLink === 'Home' ? 'Stuff' : 'Home';
-
-    expect(screen.getByRole('link', { name: activeLink })).toHaveAttribute(
-      'aria-current',
-      'page',
-    );
-
-    expect(
-      screen.getByRole('link', { name: inactiveLink }),
-    ).not.toHaveAttribute('aria-current', 'page');
+    NAVLINKS.forEach(({ to, label }) => {
+      expect(screen.getByRole('link', { name: label })).toHaveAttribute(
+        'href',
+        to,
+      );
+    });
   });
 
   it('updates the active link when the user navigates', async () => {
     const user = userEvent.setup();
-
     renderNavbar('/');
-    await user.click(screen.getByRole('link', { name: 'Stuff' }));
 
-    expect(screen.getByRole('link', { name: 'Stuff' })).toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Home' })).toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+    expect(screen.getByRole('link', { name: 'Stuff' })).not.toHaveAttribute(
       'aria-current',
       'page',
     );
 
+    await user.click(screen.getByRole('link', { name: 'Stuff' }));
+
     expect(screen.getByRole('link', { name: 'Home' })).not.toHaveAttribute(
+      'aria-current',
+      'page',
+    );
+    expect(screen.getByRole('link', { name: 'Stuff' })).toHaveAttribute(
       'aria-current',
       'page',
     );

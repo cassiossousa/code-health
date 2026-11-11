@@ -8,13 +8,13 @@
     "build": "vite build",
     "dev": "vite",
     "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
+    "lint:fix": "eslint --fix .",
     "preview": "vite preview",
     "prettier": "prettier --check .",
-    "prettier-fix": "prettier --write .",
+    "prettier:fix": "prettier --write .",
     "test": "vitest",
-    "test-cov": "vitest --coverage",
-    "test-watch": "vitest --watch --coverage",
+    "test:cov": "vitest --coverage",
+    "test:watch": "vitest --watch --coverage",
     "tsc": "tsc --noEmit"
   },
   "dependencies": {

@@ -5,7 +5,7 @@ import Navbar from '../components/navbar';
 function Layout() {
   return (
     <div>
-      <h1>Simple SPA</h1>
+      <h1>Code Health</h1>
       <Navbar />
       <Card>
         <Outlet />

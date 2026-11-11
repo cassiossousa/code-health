@@ -1,10 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-
-const NAVLINKS = [
-  { to: '/', label: 'Home' },
-  { to: '/stuff', label: 'Stuff' },
-];
+import { NAVLINKS } from '../routes';
 
 const NavbarWrapper = styled.nav`
   h1 {
@@ -36,12 +32,15 @@ const NavbarWrapper = styled.nav`
   }
 `;
 
-function Navbar() {
+interface NavbarProps {
+  links?: { to: string; label: string }[];
+}
+
+function Navbar({ links = NAVLINKS }: NavbarProps) {
   return (
     <NavbarWrapper>
-      <h1>Navbar</h1>
       <ul>
-        {NAVLINKS.map(({ to, label }) => (
+        {links.map(({ to, label }) => (
           <li key={to}>
             <NavLink to={to}>{label}</NavLink>
           </li>
