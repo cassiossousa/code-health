@@ -2,11 +2,11 @@ import type { ReactNode } from 'react';
 import styled from 'styled-components';
 
 const CardWrapper = styled.div`
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: ${({ theme }) => theme.colors.surface};
+  border: 1px solid ${({ theme }) => theme.colors.border};
+  border-radius: ${({ theme }) => theme.borderRadius.round};
+  padding: ${({ theme }) => theme.spacing[6]};
+  box-shadow: ${({ theme }) => theme.boxShadow.md};
 `;
 
 interface CardProps {

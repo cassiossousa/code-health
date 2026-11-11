@@ -4,11 +4,11 @@ import { NAVLINKS } from '../routes';
 
 const NavbarWrapper = styled.nav`
   h1 {
-    margin-bottom: 0.5rem;
+    margin-bottom: ${({ theme }) => theme.spacing[2]};
   }
 
   ul {
-    background-color: #111;
+    background-color: ${({ theme }) => theme.colors.text};
     padding: 0;
     margin: 0;
   }
@@ -20,15 +20,16 @@ const NavbarWrapper = styled.nav`
   }
 
   li a {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.surface};
     font-weight: bold;
     text-decoration: none;
-    padding: 20px;
+    padding: ${({ theme }) => theme.spacing[5]};
     display: inline-block;
   }
 
   li a.active {
-    background-color: #0099ff;
+    background-color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.surface};
   }
 `;
 

@@ -1,17 +1,21 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
 import { describe, expect, it } from 'vitest';
 
 import Navbar from './navbar';
 import { NAVLINKS } from '../routes';
+import { theme } from '../design/theme';
 
 describe('Navbar', () => {
   const renderNavbar = (initialEntry = '/') =>
     render(
-      <MemoryRouter initialEntries={[initialEntry]}>
-        <Navbar />
-      </MemoryRouter>,
+      <ThemeProvider theme={theme}>
+        <MemoryRouter initialEntries={[initialEntry]}>
+          <Navbar />
+        </MemoryRouter>
+      </ThemeProvider>,
     );
 
   it('renders the navigation links', () => {
