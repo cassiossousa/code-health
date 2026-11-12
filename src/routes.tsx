@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import Home from './pages/home';
-import RepositoryAnalysis from './pages/repository-analysis';
 import Assessment from './pages/assessment';
 
 export interface AppRoute {
@@ -18,13 +17,6 @@ export const ROUTES: AppRoute[] = [
     label: 'Home',
     index: true,
     getElement: () => <Home />,
-  },
-  {
-    to: '/repository-analysis',
-    path: 'repository-analysis',
-    label: 'Analyze',
-    index: false,
-    getElement: () => <RepositoryAnalysis />,
   },
   {
     to: '/assessment',
