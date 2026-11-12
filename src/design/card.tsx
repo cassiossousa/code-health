@@ -1,19 +1,23 @@
-import type { ReactNode } from 'react';
 import styled from 'styled-components';
 
-const CardWrapper = styled.div`
+const Card = styled.div`
   background-color: ${({ theme }) => theme.colors.surface};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.borderRadius.round};
-  padding: ${({ theme }) => theme.spacing(3)};
+  box-sizing: border-box;
+  min-width: 0;
+  padding: ${({ theme }) =>
+    `clamp(${theme.spacing(2)}, 3vw, ${theme.spacing(3)})`};
   box-shadow: ${({ theme }) => theme.boxShadow.md};
   overflow-x: auto;
+
+  & > :first-child {
+    margin-block-start: 0;
+  }
+
+  & > :last-child {
+    margin-block-end: 0;
+  }
 `;
-
-interface CardProps {
-  children?: ReactNode;
-}
-
-const Card = ({ children }: CardProps) => <CardWrapper>{children}</CardWrapper>;
 
 export default Card;
