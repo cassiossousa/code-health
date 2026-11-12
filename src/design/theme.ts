@@ -15,13 +15,10 @@ export const theme = {
     focus: '#ffe08a',
     active: '#f4f1d5',
   },
-  spacing: {
-    1: '0.25rem',
-    2: '0.5rem',
-    3: '0.75rem',
-    4: '1rem',
-    5: '1.25rem',
-    6: '1.5rem',
+  spacing: (factor: number) => `${factor * 8}px`,
+  fontFamily: {
+    sansSerif:
+      "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
   },
   borderRadius: {
     round: '0.5rem',
@@ -43,8 +40,8 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
-    font-family: sans-serif;
+    font-family: ${({ theme }) => theme.fontFamily.sansSerif};
     margin: 0;
-    padding: ${({ theme }) => theme.spacing[5]};
+    padding: ${({ theme }) => theme.spacing(2.5)};
   }
 `;

@@ -4,7 +4,7 @@ import { RouterLink } from '../design/link';
 
 const NavbarWrapper = styled.nav`
   h1 {
-    margin-bottom: ${({ theme }) => theme.spacing[2]};
+    margin-bottom: ${({ theme }) => theme.spacing(1)};
   }
 
   ul {
@@ -22,7 +22,7 @@ const NavbarWrapper = styled.nav`
 
 const NavbarLink = styled(RouterLink)`
   font-weight: bold;
-  padding: ${({ theme }) => theme.spacing[5]};
+  padding: ${({ theme }) => theme.spacing(2.5)};
   display: inline-block;
 `;
 

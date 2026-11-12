@@ -11,7 +11,7 @@ interface ColProps {
 export const Row = styled.div<RowProps>`
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
-  gap: ${({ theme, gap = theme.spacing[4] }) => gap};
+  gap: ${({ theme, gap = theme.spacing(2) }) => gap};
 `;
 
 export const Col = styled.div<ColProps>`

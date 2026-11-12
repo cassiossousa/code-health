@@ -5,7 +5,7 @@ const CardWrapper = styled.div`
   background-color: ${({ theme }) => theme.colors.surface};
   border: 1px solid ${({ theme }) => theme.colors.border};
   border-radius: ${({ theme }) => theme.borderRadius.round};
-  padding: ${({ theme }) => theme.spacing[6]};
+  padding: ${({ theme }) => theme.spacing(3)};
   box-shadow: ${({ theme }) => theme.boxShadow.md};
   overflow-x: auto;
 `;

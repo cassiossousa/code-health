@@ -17,7 +17,7 @@ describe('Row and Col', () => {
       gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
     });
     expect(screen.getByTestId('row')).toHaveStyle({
-      gap: theme.spacing[4],
+      gap: theme.spacing(2),
     });
   });
 
