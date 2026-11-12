@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import Home from './pages/home';
 import Assessment from './pages/assessment';
 
 export interface AppRoute {
@@ -14,15 +13,8 @@ export const ROUTES: AppRoute[] = [
   {
     to: '/',
     path: '',
-    label: 'Home',
-    index: true,
-    getElement: () => <Home />,
-  },
-  {
-    to: '/assessment',
-    path: 'assessment',
     label: 'Assess',
-    index: false,
+    index: true,
     getElement: () => <Assessment />,
   },
 ];
