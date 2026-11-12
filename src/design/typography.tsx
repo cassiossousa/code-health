@@ -40,6 +40,7 @@ interface TypographyProps {
   id?: string;
   title?: string;
   className?: string;
+  role?: string;
 }
 
 function Typography({ variant = 'p', ...props }: TypographyProps) {
