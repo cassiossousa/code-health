@@ -7,6 +7,7 @@ const CardWrapper = styled.div`
   border-radius: ${({ theme }) => theme.borderRadius.round};
   padding: ${({ theme }) => theme.spacing[6]};
   box-shadow: ${({ theme }) => theme.boxShadow.md};
+  overflow-x: auto;
 `;
 
 interface CardProps {
