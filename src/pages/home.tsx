@@ -1,8 +1,9 @@
-import Typography from '../design/typography';
+import { Stack } from '@mui/material';
+import Typography from '@mui/material/Typography';
 
 function Home() {
   return (
-    <>
+    <Stack spacing={2}>
       <Typography variant="h2">HELLO</Typography>
       <Typography>
         Cras facilisis urna ornare ex volutpat, et convallis erat elementum. Ut
@@ -14,7 +15,7 @@ function Home() {
       <Typography>
         Duis a turpis sed lacus dapibus elementum sed eu lectus.
       </Typography>
-    </>
+    </Stack>
   );
 }
 

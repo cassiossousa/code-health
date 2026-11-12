@@ -1,8 +1,11 @@
-import { Outlet } from 'react-router';
-import Card from '../design/card';
-import Navbar from '../components/navbar';
-import { Row, Col } from '../design/grid';
-import Typography from '../design/typography';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import Stack from '@mui/material/Stack';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { NavLink, Outlet } from 'react-router';
+import { ROUTES } from '../routes';
 
 interface PageProps {
   title?: string;
@@ -10,19 +13,31 @@ interface PageProps {
 
 function Layout({ title = 'Code Health' }: PageProps) {
   return (
-    <Row>
-      <Col>
-        <Typography variant="h1">{title}</Typography>
-      </Col>
-      <Col>
-        <Navbar />
-      </Col>
-      <Col>
-        <Card>
-          <Outlet />
-        </Card>
-      </Col>
-    </Row>
+    <Stack spacing={2}>
+      <Typography variant="h1">{title}</Typography>
+      <AppBar position="static" component="nav" aria-label="Main navigation">
+        <Toolbar>
+          {ROUTES.map(({ to, label }) => (
+            <Button
+              key={to}
+              component={NavLink}
+              to={to}
+              color="inherit"
+              sx={{
+                '&[aria-current="page"]': {
+                  bgcolor: 'action.selected',
+                },
+              }}
+            >
+              {label}
+            </Button>
+          ))}
+        </Toolbar>
+      </AppBar>
+      <Card sx={{ p: 3 }}>
+        <Outlet />
+      </Card>
+    </Stack>
   );
 }
 

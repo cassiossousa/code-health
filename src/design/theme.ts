@@ -1,47 +1,49 @@
-import { createGlobalStyle } from 'styled-components';
+import { createTheme } from '@mui/material/styles';
 
-export const theme = {
-  colors: {
-    primary: '#0f766e',
-    background: '#f0f7f6',
-    surface: '#ffffff',
-    text: '#173b39',
-    border: '#d3e3e1',
+export const theme = createTheme({
+  palette: {
+    primary: { main: '#0f766e' },
+    background: { default: '#f0f7f6', paper: '#ffffff' },
+    text: { primary: '#173b39' },
+    divider: '#d3e3e1',
+    warning: { main: '#ffe08a' },
   },
-  link: {
-    default: '#b6e3de',
-    visited: '#c5d5a5',
-    hover: '#d8f0e9',
-    focus: '#ffe08a',
-    active: '#f4f1d5',
-  },
-  spacing: (factor: number) => `${factor * 8}px`,
-  fontFamily: {
-    sansSerif:
+  shape: { borderRadius: 8 },
+  typography: {
+    fontFamily:
       "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    h1: {
+      fontSize: '36px',
+      fontWeight: 700,
+      lineHeight: 1.2,
+      letterSpacing: '-0.02em',
+    },
+    h2: {
+      fontSize: '30px',
+      fontWeight: 700,
+      lineHeight: 1.2,
+      letterSpacing: '-0.015em',
+    },
+    h3: {
+      fontSize: '24px',
+      fontWeight: 600,
+      lineHeight: 1.25,
+      letterSpacing: '0',
+    },
+    body1: {
+      fontSize: '16px',
+      fontWeight: 400,
+      lineHeight: 1.5,
+      letterSpacing: '0',
+    },
   },
-  borderRadius: {
-    round: '0.5rem',
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          padding: '24px',
+        },
+      },
+    },
   },
-  boxShadow: {
-    md: '0 2px 4px rgba(23, 59, 57, 0.1)',
-  },
-} as const;
-
-type AppTheme = typeof theme;
-
-declare module 'styled-components' {
-  // Keep the theme shape inferred from the source object.
-  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-  export interface DefaultTheme extends AppTheme {}
-}
-
-export const GlobalStyle = createGlobalStyle`
-  body {
-    background-color: ${({ theme }) => theme.colors.background};
-    color: ${({ theme }) => theme.colors.text};
-    font-family: ${({ theme }) => theme.fontFamily.sansSerif};
-    margin: 0;
-    padding: ${({ theme }) => theme.spacing(2.5)};
-  }
-`;
+});

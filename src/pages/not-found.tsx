@@ -1,12 +1,12 @@
-import { Link } from 'react-router';
-import Typography from '../design/typography';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
 
 function NotFound() {
   return (
     <div>
       <Typography variant="h2">NOTHING HERE</Typography>
       <Typography>
-        We couldn't find that page. Want to go <Link to="/">home</Link>?
+        We could not find that page. Want to go <Link href="/">home</Link>?
       </Typography>
     </div>
   );

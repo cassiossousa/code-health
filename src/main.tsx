@@ -1,16 +1,17 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import { ThemeProvider } from 'styled-components';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import Layout from './spa/layout';
 import NotFound from './pages/not-found';
 import { ROUTES, type AppRoute } from './routes';
-import { GlobalStyle, theme } from './design/theme';
+import { theme } from './design/theme';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyle />
+      <CssBaseline />
       <BrowserRouter basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Layout />}>
