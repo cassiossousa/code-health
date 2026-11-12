@@ -37,19 +37,19 @@ describe('Navbar', () => {
       'aria-current',
       'page',
     );
-    expect(screen.getByRole('link', { name: 'Stuff' })).not.toHaveAttribute(
+    expect(screen.getByRole('link', { name: 'Analyze' })).not.toHaveAttribute(
       'aria-current',
       'page',
     );
 
-    await user.click(screen.getByRole('link', { name: 'Stuff' }));
+    await user.click(screen.getByRole('link', { name: 'Analyze' }));
 
     const homeLink = screen.getByRole('link', { name: 'Home' });
-    const stuffLink = screen.getByRole('link', { name: 'Stuff' });
+    const analyzeLink = screen.getByRole('link', { name: 'Analyze' });
 
     expect(homeLink).not.toHaveAttribute('aria-current', 'page');
-    expect(stuffLink).toHaveAttribute('aria-current', 'page');
-    expect(stuffLink).toHaveStyle({
+    expect(analyzeLink).toHaveAttribute('aria-current', 'page');
+    expect(analyzeLink).toHaveStyle({
       color: theme.link.active,
       backgroundColor: theme.colors.primary,
     });

@@ -27,7 +27,7 @@ const NavbarLink = styled(RouterLink)`
 `;
 
 interface NavbarProps {
-  links?: { to: string; label: string }[];
+  links?: readonly { to: string; label: string }[];
 }
 
 function Navbar({ links = ROUTES }: NavbarProps) {

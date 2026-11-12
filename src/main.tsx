@@ -3,9 +3,8 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router';
 import { ThemeProvider } from 'styled-components';
 import Layout from './spa/layout';
-import Home from './pages/home';
-import Stuff from './pages/stuff';
 import NotFound from './pages/not-found';
+import { ROUTES, type AppRoute } from './routes';
 import { GlobalStyle, theme } from './design/theme';
 
 createRoot(document.getElementById('root')!).render(
@@ -15,8 +14,14 @@ createRoot(document.getElementById('root')!).render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="stuff" element={<Stuff />} />
+            {ROUTES.map((route: AppRoute) => (
+              <Route
+                key={route.path}
+                index={route.index}
+                path={route.path}
+                element={route.getElement()}
+              />
+            ))}
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>

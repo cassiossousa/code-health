@@ -1,4 +1,4 @@
-function Stuff() {
+function RepositoryAnalysis() {
   return (
     <>
       <h2>STUFF</h2>
@@ -14,4 +14,4 @@ function Stuff() {
   );
 }
 
-export default Stuff;
+export default RepositoryAnalysis;
